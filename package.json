@@ -4,7 +4,7 @@
   "main": "./ng-semantic.js",
   "description": "Angular2 building blocks based on Semantic UI",
   "scripts": {
-    "demo:lint": "tslint -c ./tslint.json 'demo/app/**/*.ts'",
+    "demo:lint": "#tslint -c ./tslint.json 'demo/app/**/*.ts'",
     "library:lint": "tslint -c ./tslint.json 'src/**/*.ts'",
     "demo:server": "node tools/server.js",
     "tsc": "tsc",
