@@ -1,6 +1,6 @@
 {
-  "name": "ng-semantic",
-  "version": "1.1.13",
+  "name": "ng-semantic-ja",
+  "version": "1.1.13.ja.1",
   "main": "./ng-semantic.js",
   "description": "Angular2 building blocks based on Semantic UI",
   "scripts": {
@@ -10,8 +10,9 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w -p ./demo",
     "start": "tsc && concurrently \"tsc -w\" \"npm run tsc:w\" \"lite-server -c tools/dev.config.js\" ",
-    "prepublish": "npm run demo:lint",
+    "prepublish": "#npm run demo:lint",
     "library:bundle": "tsc && rm -rf bundles && node tools/library.builder.js",
+    "aot": "node_modules/.bin/ngc -p tsconfig-aot.json",
     "demo:bundle": "tsc -p './demo' && node tools/demo.builder.js"
   },
   "repository": {
@@ -34,16 +35,21 @@
   "typings": "./ng-semantic.d.ts",
   "homepage": "https://ng-semantic.herokuapp.com/",
   "license": "MIT",
+  "dependencies": {
+    "@angular/compiler-cli": "^2.4.7",
+    "@angular/platform-server": "^2.4.7"
+  },
   "devDependencies": {
-    "@angular/common": "^2.0.1",
-    "@angular/compiler": "^2.0.1",
-    "@angular/core": "^2.0.1",
-    "@angular/forms": "^2.0.1",
-    "@angular/http": "^2.0.1",
-    "@angular/platform-browser": "^2.0.1",
-    "@angular/platform-browser-dynamic": "^2.0.1",
+    "@angular/common": "^2.4.7",
+    "@angular/compiler": "^2.4.7",
+    "@angular/core": "^2.4.7",
+    "@angular/forms": "^2.4.7",
+    "@angular/http": "^2.4.7",
+    "@angular/platform-browser": "^2.4.7",
+    "@angular/platform-browser-dynamic": "^2.4.7",
     "@angular/router": "^3.0.0",
-    "@angular/upgrade": "^2.0.1",
+    "@angular/upgrade": "^2.4.7",
+    "@types/core-js": "^0.9.35",
     "@types/jasmine": "^2.5.36",
     "@types/jquery": "^2.0.34",
     "@types/node": "^6.0.46",
@@ -58,6 +64,6 @@
     "systemjs-builder": "^0.15.26",
     "tslint": "^3.14.0",
     "typescript": "^2.0.2",
-    "zone.js": "^0.6.23"
+    "zone.js": "^0.7.4"
   }
 }
