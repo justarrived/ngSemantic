@@ -100,7 +100,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
- declarations: [ SEMANTIC_DIRECTIVES, SEMANTIC_COMPONENTS, NgSemanticModule ],
+ declarations: [ SEMANTIC_DIRECTIVES, SEMANTIC_COMPONENTS ],
  exports: [ SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES ],
  imports: [ CommonModule, FormsModule, ReactiveFormsModule ]
 })
