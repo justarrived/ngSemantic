@@ -32,6 +32,15 @@ export class SemanticSelectComponent implements AfterViewInit {
     }, 1);
   };
 
+  @Input("data")
+  set data(data: any) {
+    if (data && this.control.value) {
+      setTimeout(() => {
+        jQuery(this.select.nativeElement).dropdown("set selected", this.control.value);
+      }, 1);
+    }
+  }
+
   @Input() options: {} = {};
   @Input() placeholder: string;
   @Output() modelChange: EventEmitter<string|number> = new EventEmitter<string|number>();

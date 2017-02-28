@@ -34,6 +34,18 @@ var SemanticSelectComponent = (function () {
         configurable: true
     });
     ;
+    Object.defineProperty(SemanticSelectComponent.prototype, "data", {
+        set: function (data) {
+            var _this = this;
+            if (data && this.control.value) {
+                setTimeout(function () {
+                    jQuery(_this.select.nativeElement).dropdown("set selected", _this.control.value);
+                }, 1);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(SemanticSelectComponent.prototype, "model", {
         set: function (data) {
             var _this = this;
@@ -65,7 +77,7 @@ var SemanticSelectComponent = (function () {
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", forms_1.FormControl)
+    __metadata("design:type", typeof (_a = typeof forms_1.FormControl !== "undefined" && forms_1.FormControl) === "function" && _a || Object)
 ], SemanticSelectComponent.prototype, "control", void 0);
 __decorate([
     core_1.Input(),
@@ -81,6 +93,11 @@ __decorate([
     __metadata("design:paramtypes", [Boolean])
 ], SemanticSelectComponent.prototype, "disabled", null);
 __decorate([
+    core_1.Input("data"),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], SemanticSelectComponent.prototype, "data", null);
+__decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], SemanticSelectComponent.prototype, "options", void 0);
@@ -90,15 +107,15 @@ __decorate([
 ], SemanticSelectComponent.prototype, "placeholder", void 0);
 __decorate([
     core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
+    __metadata("design:type", typeof (_b = typeof core_1.EventEmitter !== "undefined" && core_1.EventEmitter) === "function" && _b || Object)
 ], SemanticSelectComponent.prototype, "modelChange", void 0);
 __decorate([
     core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
+    __metadata("design:type", typeof (_c = typeof core_1.EventEmitter !== "undefined" && core_1.EventEmitter) === "function" && _c || Object)
 ], SemanticSelectComponent.prototype, "onChange", void 0);
 __decorate([
     core_1.ViewChild("select"),
-    __metadata("design:type", core_1.ElementRef)
+    __metadata("design:type", typeof (_d = typeof core_1.ElementRef !== "undefined" && core_1.ElementRef) === "function" && _d || Object)
 ], SemanticSelectComponent.prototype, "select", void 0);
 __decorate([
     core_1.Input("model"),
@@ -114,3 +131,4 @@ SemanticSelectComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], SemanticSelectComponent);
 exports.SemanticSelectComponent = SemanticSelectComponent;
+var _a, _b, _c, _d;
