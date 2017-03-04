@@ -68,7 +68,7 @@ export class SemanticInputComponent implements OnInit {
   selector: "sm-checkbox",
   template: `<div class="field" [ngClass]="{error: (!control.value && control?.validator) }">
     <div class="ui {{classType}} checkbox">
-      <input type="checkbox" 
+      <input type="checkbox"
       [attr.value]="value"
       [attr.type]="inputType" tabindex="0" [attr.name]="name" [formControl]="control" [attr.disabled]="disabled">
       <label *ngIf="label">{{label}}</label>
@@ -106,11 +106,12 @@ export class SemanticCheckboxComponent {
   selector: "sm-textarea",
   template: `<div class="field" [ngClass]="{error: (!control.valid && control.dirty) }">
     <label *ngIf="label">{{label}}</label>
-    <textarea rows="{{rows}}" [formControl]="control"></textarea>
+    <textarea rows="{{rows}}" [formControl]="control" placeholder="{{placeholder}}"></textarea>
   </div>`
 })
 export class SemanticTextareaComponent {
   @Input() control: FormControl = new FormControl();
   @Input() label: string;
   @Input() rows: string;
+  @Input() placeholder: string;
 }

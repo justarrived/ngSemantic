@@ -29,4 +29,5 @@ export declare class SemanticTextareaComponent {
     control: FormControl;
     label: string;
     rows: string;
+    placeholder: string;
 }
