@@ -50,7 +50,6 @@ __decorate([
 ], SemanticLoaderComponent.prototype, "promise", null);
 SemanticLoaderComponent = __decorate([
     core_1.Component({
-        changeDetection: core_1.ChangeDetectionStrategy.OnPush,
         selector: "sm-loader",
         template: "<div *ngIf=\"!complete && !resolved\" class=\"ui active dimmer {{class}}\">\n    <div [ngClass]=\"{text: text}\" class=\"ui loader\">{{text}}</div>\n  </div>"
     }),
