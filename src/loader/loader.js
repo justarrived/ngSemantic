@@ -12,11 +12,13 @@ var core_1 = require("@angular/core");
 var SemanticLoaderComponent = (function () {
     function SemanticLoaderComponent() {
         this.complete = false;
+        this.resolved = false;
     }
     Object.defineProperty(SemanticLoaderComponent.prototype, "promise", {
         set: function (prom) {
             var _this = this;
             if (prom) {
+                this.resolved = false;
                 prom.then(function () {
                     _this.resolved = true;
                 }).catch(function () {
@@ -50,7 +52,7 @@ SemanticLoaderComponent = __decorate([
     core_1.Component({
         changeDetection: core_1.ChangeDetectionStrategy.OnPush,
         selector: "sm-loader",
-        template: "<div *ngIf=\"!complete || !resolved\" class=\"ui active dimmer {{class}}\">\n    <div [ngClass]=\"{text: text}\" class=\"ui loader\">{{text}}</div>\n  </div>"
+        template: "<div *ngIf=\"!complete && !resolved\" class=\"ui active dimmer {{class}}\">\n    <div [ngClass]=\"{text: text}\" class=\"ui loader\">{{text}}</div>\n  </div>"
     }),
     __metadata("design:paramtypes", [])
 ], SemanticLoaderComponent);

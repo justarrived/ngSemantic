@@ -8,7 +8,7 @@ import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "sm-loader",
-  template: `<div *ngIf="!complete || !resolved" class="ui active dimmer {{class}}">
+  template: `<div *ngIf="!complete && !resolved" class="ui active dimmer {{class}}">
     <div [ngClass]="{text: text}" class="ui loader">{{text}}</div>
   </div>`
 })
@@ -19,6 +19,7 @@ export class SemanticLoaderComponent {
   @Input("promise")
   public set promise(prom: Promise<any>) {
     if (prom) {
+      this.resolved = false;
       prom.then(() => {
         this.resolved = true;
       }).catch(() => {
@@ -27,5 +28,5 @@ export class SemanticLoaderComponent {
     }
   }
 
-  public resolved: boolean;
+  public resolved: boolean = false;
 }
