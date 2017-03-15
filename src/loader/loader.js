@@ -13,6 +13,20 @@ var SemanticLoaderComponent = (function () {
     function SemanticLoaderComponent() {
         this.complete = false;
     }
+    Object.defineProperty(SemanticLoaderComponent.prototype, "promise", {
+        set: function (prom) {
+            var _this = this;
+            if (prom) {
+                prom.then(function () {
+                    _this.resolved = true;
+                }).catch(function () {
+                    _this.resolved = true;
+                });
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     return SemanticLoaderComponent;
 }());
 __decorate([
@@ -27,11 +41,16 @@ __decorate([
     core_1.Input("complete"),
     __metadata("design:type", Boolean)
 ], SemanticLoaderComponent.prototype, "complete", void 0);
+__decorate([
+    core_1.Input("promise"),
+    __metadata("design:type", Promise),
+    __metadata("design:paramtypes", [Promise])
+], SemanticLoaderComponent.prototype, "promise", null);
 SemanticLoaderComponent = __decorate([
     core_1.Component({
         changeDetection: core_1.ChangeDetectionStrategy.OnPush,
         selector: "sm-loader",
-        template: "<div *ngIf=\"!complete\" class=\"ui active dimmer {{class}}\">\n    <div [ngClass]=\"{text: text}\" class=\"ui loader\">{{text}}</div>\n  </div>"
+        template: "<div *ngIf=\"!complete || !resolved\" class=\"ui active dimmer {{class}}\">\n    <div [ngClass]=\"{text: text}\" class=\"ui loader\">{{text}}</div>\n  </div>"
     }),
     __metadata("design:paramtypes", [])
 ], SemanticLoaderComponent);
