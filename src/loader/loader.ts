@@ -7,7 +7,7 @@ import { Component, Input } from "@angular/core";
  */
 @Component({
   selector: "sm-loader",
-  template: `<div *ngIf="!complete && !resolved" class="ui active dimmer {{class}}">
+  template: `<div *ngIf="!complete || !resolved" class="ui active dimmer {{class}}">
     <div [ngClass]="{text: text}" class="ui loader">{{text}}</div>
   </div>`
 })
@@ -27,5 +27,5 @@ export class SemanticLoaderComponent {
     }
   }
 
-  public resolved: boolean = false;
+  public resolved: boolean = true;
 }
