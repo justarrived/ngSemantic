@@ -14,7 +14,7 @@ import { Component, Input } from "@angular/core";
 export class SemanticLoaderComponent {
   @Input("class") class: string;
   @Input("text") text: string;
-  @Input("complete") complete: boolean = false;
+  @Input("complete") complete: boolean = true;
   @Input("promise")
   public set promise(prom: Promise<any>) {
     if (prom) {
