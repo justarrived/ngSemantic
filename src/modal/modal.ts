@@ -15,7 +15,7 @@ declare var jQuery: any;
   selector: "sm-modal",
   template: `<div class="ui modal {{class}}" #modal>
     <i class="close icon"></i>
-    <div [ngClass]="{'icon': icon}" class="ui header">
+    <div *ngIf="icon || title" [ngClass]="{'icon': icon}" class="ui header">
         <i *ngIf="icon" class="icon {{icon}}"></i>
         {{title}}
     </div>
